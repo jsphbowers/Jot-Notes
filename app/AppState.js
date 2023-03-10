@@ -13,6 +13,9 @@ class AppState extends EventEmitter {
     new Note({ title: 'First-Note', color: 'red', date: null, type: 'important' }),
     new Note({ title: 'Second Note', color: 'orange', date: null, type: 'to do' })
   ]
+
+  activeNote = null
+
 }
 
 export const appState = new Proxy(new AppState(), {

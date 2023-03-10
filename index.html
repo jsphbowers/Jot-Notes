@@ -33,7 +33,7 @@
           <!-- SECTION Header/ nav area -->
           <section class="row">
             <div class="col-6">
-              <h2><i class="mdi mdi-circle"></i></h2>
+              <h2><i class="mdi mdi-circle"></i>Total Notes = <span id="total"></span></h2>
             </div>
             <div class="col-6 text-end">
               <h2><i class="mdi mdi-square"></i></h2>
@@ -78,7 +78,7 @@
             <div class="col-6">
               <section class="row">
                 <div class="col-12 text-end p-2">
-                  <button class="btn btn-primary" onsubmit="app.notesController.saveNote()"><i
+                  <button class="btn btn-primary" onclick="app.notesController.saveNote()"><i
                       class="mdi mdi-content-save"></i></button>
                 </div>
 
