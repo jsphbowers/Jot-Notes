@@ -18,5 +18,7 @@
     "titleBar.inactiveBackground": "#5d2ea199",
     "titleBar.inactiveForeground": "#e7e7e799"
   },
-  "peacock.color": "#5d2ea1"
+  "peacock.color": "#5d2ea1",
+  "js/ts.implicitProjectConfig.checkJs": true,
+  "js/ts.implicitProjectConfig.experimentalDecorators": true
 }

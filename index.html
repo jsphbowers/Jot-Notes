@@ -44,26 +44,31 @@
           <!-- STUB Note creation -->
           <section class="row">
             <div class="col-4">
-              <form onsubmit="">
-                <input type="text" class="form-control" placeholder="Title" minlength="3" maxlength="15">
-                <select name="" id="">
+              <h4>Make a New Note:</h4>
+              <form onsubmit="app.notesController.createNote()">
+                <input id="title" name='title' type="text" class="form-control" placeholder="Title" minlength="3"
+                  maxlength="15" required>
+                <input id="color" name='color' type="color" class="form-control" label:="color" required>
+                <select name="type" id="type" required>
                   <option value="todo">To Do</option>
                   <option value="important">Important</option>
                   <option value="primary">Primary</option>
                   <option value="secondary">secondary</option>
                 </select>
-                <button class="btn bg-success">SAVE</button>
+                <button class="btn bg-success">Create</button>
               </form>
 
               <!-- STUB note details -->
-              <div class="card p-3">
-                <!-- <div class="p-2 d-flex justify-content-between">
+              <div id="notesList">
+                <!-- <div class="card p-3">
+                  <div class="p-2 d-flex justify-content-between">
                   <h5>Title of note</h5>
                   <h5>color</h5>
                 </div>
                 <div>
                   <p>date created</p>
                   <p>last saved</p>
+                </div>
                 </div> -->
               </div>
 
@@ -71,8 +76,16 @@
 
             <!-- STUB Main Note area -->
             <div class="col-6">
-              <textarea class="note" name="note" id="note" cols="100" rows="10"
-                placeholder="write that down! write that down!"></textarea>
+              <section class="row">
+                <div class="col-12 text-end p-2">
+                  <button class="btn btn-primary" onsubmit="app.notesController.saveNote()"><i
+                      class="mdi mdi-content-save"></i></button>
+                </div>
+
+                <textarea class="note" name="note" id="note" cols="100" rows="10"
+                  placeholder="write that down! write that down!"></textarea>
+
+              </section>
             </div>
           </section>
 

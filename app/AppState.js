@@ -10,7 +10,8 @@ class AppState extends EventEmitter {
 
   /** @type {import('./Models/Note').Note[]} */
   notes = [
-    new Note({ name: 'First-Note', Color: 'red', Date: '03/02/1995', Type: 'java' })
+    new Note({ title: 'First-Note', color: 'red', date: null, type: 'important' }),
+    new Note({ title: 'Second Note', color: 'orange', date: null, type: 'to do' })
   ]
 }
 
