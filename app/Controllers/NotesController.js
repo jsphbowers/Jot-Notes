@@ -11,11 +11,18 @@ function _drawNotesList() {
   appState.on('notes', _drawNotesList)
 }
 
+function _totalNotes() {
+  let grandTotal = 0
+  appState.notes.forEach(note => grandTotal++)
+  setHTML('total', grandTotal)
+  appState.on('notes', _totalNotes)
+}
 
 
 export class NotesController {
   constructor() {
     _drawNotesList()
+    _totalNotes()
   }
 
   createNote() {
@@ -30,8 +37,17 @@ export class NotesController {
     notesService.addNote(newNote)
   }
 
+  setActiveNote() {
+
+  }
+
   saveNote() {
     window.event?.preventDefault()
-    console.log("we saving")
+    let note = document.querySelector('.note')
+    // console.log(note.value);
+    notesService.saveNote(note.value)
+
+
   }
 }
+
