@@ -6,7 +6,7 @@ export class Note {
     this.title = data.title
     this.color = data.color
     this.created = data.created ? new Date(data.created) : new Date()
-    this.saved = data.saved || 'Not Saved'
+    this.saved = data.saved ? new Date(data.saved) : new Date()
     this.type = data.type
     this.note = data.note || 'Nothing yet'
   }
@@ -21,7 +21,7 @@ export class Note {
                 <div>
                 <p>
                   <p>${this.ComputeDate}</p>
-                  <p>${this.saved}</p>
+                  <p>${this.ComputeSaveDate}</p>
                   <p>${this.type}</p>
                 </div>
                 </div>
@@ -38,15 +38,15 @@ export class Note {
     <div class="card p-3">
       <div class="p-2 d-flex justify-content-between">
         <h5>${this.title}</h5>
-        <h5>${this.color}</h5>
+        <h5 style="color: ${this.color};"><i class="mdi mdi-circle"></i></h5>
       </div>
       <div>
         <p>${this.ComputeDate}</p>
-        <p>${this.saved}</p>
+        <p>${this.ComputeSaveDate}</p>
       </div>
     </div>
     <textarea class="note" name="note" id="note" cols="100" rows="10"
-      placeholder="write that down! write that down!"></textarea>
+      placeholder="write that down! write that down!">${this.note}</textarea>
     <div class="col-12">
 
     </div>
@@ -57,7 +57,12 @@ export class Note {
 
   get ComputeDate() {
     let date = this.created
-    return (date.getMonth() + 1) + '/' + (date.getDate()) + '/' + (date.getFullYear())
+    return (date.getMonth() + 1) + '/' + (date.getDate()) + '/' + (date.getFullYear()) + ' ' + (date.getHours()) + ':' + (date.getMinutes())
 
+  }
+
+  get ComputeSaveDate() {
+    let date = this.saved
+    return (date.getMonth() + 1) + '/' + (date.getDate()) + '/' + (date.getFullYear()) + ' ' + (date.getHours()) + ':' + (date.getMinutes())
   }
 }

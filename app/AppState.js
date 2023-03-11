@@ -9,10 +9,12 @@ class AppState extends EventEmitter {
   values = loadState('values', [Value])
 
   /** @type {import('./Models/Note').Note[]} */
-  notes = [
-    new Note({ title: 'First-Note', color: 'red', date: null, type: 'important' }),
-    new Note({ title: 'Second Note', color: 'orange', date: null, type: 'to do' })
-  ]
+  // notes = [
+  //   new Note({ title: 'First-Note', color: 'red', date: null, type: 'important' }),
+  //   new Note({ title: 'Second Note', color: 'orange', date: null, type: 'to do' })
+  // ]
+
+  notes = loadState('noteFiles', [Note])
 
   activeNote = null
 

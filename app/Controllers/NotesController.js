@@ -12,7 +12,7 @@ function _drawNotesList() {
 }
 
 function _drawActiveNote(clickedId) {
-  let activeNote = appState.notes.find(note => clickedId == note.id)
+  let activeNote = appState.activeNote
   let activeTemplate = ''
   activeTemplate += activeNote.activeTemplate
   setHTML('active', activeTemplate)
@@ -30,6 +30,7 @@ export class NotesController {
   constructor() {
     _drawNotesList()
     _totalNotes()
+    appState.on('activeNote', _drawActiveNote)
   }
 
   createNote() {
@@ -46,16 +47,15 @@ export class NotesController {
 
   setActive(clickedId) {
     // console.log(noteId)
-    _drawActiveNote(clickedId)
+    let newActive = clickedId
+    notesService.setActive(newActive)
   }
 
   saveNote() {
-    window.event?.preventDefault()
+
     let note = document.querySelector('.note')
     // console.log(note.value);
     notesService.saveNote(note.value)
-
-
   }
 }
 
