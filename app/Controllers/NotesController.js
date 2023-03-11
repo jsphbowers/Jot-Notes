@@ -11,6 +11,13 @@ function _drawNotesList() {
   appState.on('notes', _drawNotesList)
 }
 
+function _drawActiveNote(clickedId) {
+  let activeNote = appState.notes.find(note => clickedId == note.id)
+  let activeTemplate = ''
+  activeTemplate += activeNote.activeTemplate
+  setHTML('active', activeTemplate)
+}
+
 function _totalNotes() {
   let grandTotal = 0
   appState.notes.forEach(note => grandTotal++)
@@ -37,8 +44,9 @@ export class NotesController {
     notesService.addNote(newNote)
   }
 
-  setActiveNote() {
-
+  setActive(clickedId) {
+    // console.log(noteId)
+    _drawActiveNote(clickedId)
   }
 
   saveNote() {
