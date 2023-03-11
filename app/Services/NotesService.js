@@ -11,6 +11,7 @@ class NotesService {
     // console.log(text)
     let editedNote = appState.activeNote
     editedNote.note = text
+    editedNote.saved = new Date()
     appState.emit('activeNote')
     saveState('noteFiles', appState.notes)
   }
@@ -25,8 +26,9 @@ class NotesService {
   deleteNote(noteId) {
     let filteredArray = appState.notes.filter((note) => note.id != noteId);
     appState.notes = filteredArray;
-    console.log('new array in appstate', appState.notes)
+    // console.log('new array in appstate', appState.notes)
     saveState('noteFiles', appState.notes)
+
   }
 
 
