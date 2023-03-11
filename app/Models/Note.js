@@ -16,7 +16,7 @@ export class Note {
     <div class="card p-3" onclick="app.notesController.setActive('${this.id}')">
                 <div class="p-2 d-flex justify-content-between">
                   <h5>${this.title}</h5>
-                  <h5>${this.color}</h5>
+                  <h5 style="color: ${this.color};"><i class="mdi mdi-circle"></i></h5>
                 </div>
                 <div>
                 <p>
@@ -34,6 +34,7 @@ export class Note {
     <div class="col-12 text-end p-2">
       <button class="btn btn-primary" onclick="app.notesController.saveNote('${this.id}')"><i
           class="mdi mdi-content-save"></i></button>
+          <button class="btn btn-danger" onclick="app.notesController.deleteNote()"><i class="mdi mdi-cancel"></i></button>
     </div>
     <div class="card p-3">
       <div class="p-2 d-flex justify-content-between">

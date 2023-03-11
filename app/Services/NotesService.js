@@ -22,6 +22,11 @@ class NotesService {
 
   }
 
+  deleteNote(deleted) {
+    // console.log(deleted);
+    let deletedNote = appState.notes.find(note => deleted.id == note.id)
+
+  }
 
 
 

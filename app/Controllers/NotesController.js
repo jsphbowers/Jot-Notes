@@ -57,5 +57,10 @@ export class NotesController {
     // console.log(note.value);
     notesService.saveNote(note.value)
   }
+
+  deleteNote() {
+    let deleted = appState.activeNote
+    notesService.deleteNote(deleted)
+  }
 }
 
