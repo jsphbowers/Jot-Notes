@@ -22,10 +22,11 @@ class NotesService {
 
   }
 
-  deleteNote(deleted) {
-    // console.log(deleted);
-    let deletedNote = appState.notes.find(note => deleted.id == note.id)
-
+  deleteNote(noteId) {
+    let filteredArray = appState.notes.filter((note) => note.id != noteId);
+    appState.notes = filteredArray;
+    console.log('new array in appstate', appState.notes)
+    saveState('noteFiles', appState.notes)
   }
 
 

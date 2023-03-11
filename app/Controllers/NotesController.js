@@ -1,6 +1,7 @@
 import { appState } from "../AppState.js"
 import { notesService } from "../Services/NotesService.js"
 import { getFormData } from "../Utils/FormHandler.js"
+import { Pop } from "../Utils/Pop.js"
 import { setHTML } from "../Utils/Writer.js"
 
 function _drawNotesList() {
@@ -58,9 +59,10 @@ export class NotesController {
     notesService.saveNote(note.value)
   }
 
-  deleteNote() {
-    let deleted = appState.activeNote
-    notesService.deleteNote(deleted)
+  async deleteNote(noteId) {
+    if (await Pop.confirm("Are you sure you wanna delete this note?")) {
+      notesService.deleteNote(noteId)
+    }
   }
 }
 
