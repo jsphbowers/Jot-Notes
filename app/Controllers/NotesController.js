@@ -44,6 +44,7 @@ export class NotesController {
     let newNote = getFormData(form)
     // console.log(newNote)
     notesService.addNote(newNote)
+    this.saveNote()
   }
 
   setActive(clickedId) {

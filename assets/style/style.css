@@ -3,3 +3,7 @@
   height: 50vh;
   width: auto;
 }
+
+.success {
+  background-color: rgb(65, 202, 65);
+}
