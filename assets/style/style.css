@@ -2,8 +2,13 @@
 .note {
   height: 50vh;
   width: auto;
+  /* box-shadow: 2px 2px 4px; */
 }
 
 .success {
   background-color: rgb(65, 202, 65);
 }
+
+/* .activeCard {
+  box-shadow: 2px 2px 0px;
+} */
